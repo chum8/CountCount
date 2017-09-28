@@ -1,0 +1,29 @@
+﻿@using dms82
+@model DoTheCountingModel
+<div>
+    <h2>Your result</h2>
+    <form asp-action="DoTheCounting">
+        <textarea name="theText" rows="10" cols="65">@Model.fetchLoadedText()</textarea>
+        <p>
+            @Html.RadioButton("sortType1", 0)<span>Sort Ascending</span>
+            @Html.RadioButton("sortType1", 1)<span>Sort Descending</span>
+        </p>
+        <p>
+            @Html.RadioButton("sortType2", 0)<span>Sort Alphabetically</span>
+            @Html.RadioButton("sortType2", 2)<span>Sort by Frequency</span>
+        </p>
+        <p>
+            <input type="submit" value="Click to count characters and words again" />
+        </p>
+    </form>
+    </div>
+<div>
+    @foreach (KeyValuePair<char, int> item in Model.fetchCountedChars())
+    {
+        <div>@item.Key : @item.Value</div>
+    }
+    @foreach (KeyValuePair<string, int> item in Model.fetchCountedWords())
+    {
+        <div>@item.Key : @item.Value</div>
+    }
+</div>

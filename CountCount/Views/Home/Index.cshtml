@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using dms82
+@model DoTheCountingModel
+
+<h1>Welcome to count count!  Paste your text in the field below.</h1>
+<form asp-action="DoTheCounting">
+    <p>
+        <textarea name="theText" placeholder="Enter or paste text" rows="10" cols="65"></textarea>
+    </p>
+    <p>
+        @Html.RadioButton("sortType1", 0)<span>Sort Ascending</span>
+        @Html.RadioButton("sortType1", 1)<span>Sort Descending</span>
+    </p>
+    <p>
+        @Html.RadioButton("sortType2", 0)<span>Sort Alphabetically</span>
+        @Html.RadioButton("sortType2", 2)<span>Sort by Frequency</span>
+    </p>
+    <p>
+        <input type="submit" value="Click to count characters and words" />
+    </p>
+</form>
